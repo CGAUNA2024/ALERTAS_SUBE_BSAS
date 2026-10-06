@@ -152,6 +152,7 @@ tr:hover td{background:#f8fafc}
         <th>T</th><th>S°</th>
         <th data-sort="sentido" style="cursor:pointer">Sentido</th>
         <th class="num" data-sort="kms" style="cursor:pointer">KMs</th>
+        <th class="num" data-sort="trx" style="cursor:pointer">TRX</th>
         <th class="num" data-sort="cambios" style="cursor:pointer">Cambios</th>
         <th data-sort="cat" style="cursor:pointer">Categoría</th>
         <th class="num" data-sort="r" style="cursor:pointer">%</th>
@@ -281,12 +282,13 @@ function fila(r){
     r.servicio,
     r.sentido,
     r.kms.toFixed(2),
+    r.trx,
     '<b>'+r.cambios+'</b>',
     badge(r.cat),
     pct(r.r),
     r.alertas||''
   ];
-  var cls=['','','','','num','num','','num','num','','num','al'];
+  var cls=['','','','','num','num','','num','num','num','','num','al'];
   var html='<tr>';
   for(var i=0;i<cells.length;i++){
     html+='<td'+(cls[i]?' class="'+cls[i]+'"':'')+'>'+cells[i]+'</td>';
@@ -486,10 +488,10 @@ function renderGrafico(){
 function exportarCSV(){
   const rows=_rows.length>0?_rows:filtrar();
   const hdr=['Fecha','Interno','Legajo','Ramal','Turno','Servicio','Sentido',
-             'KMs','Cambios','Categoría','%','Alertas','Archivo'];
+             'KMs','TRX','Cambios','Categoría','%','Alertas','Archivo'];
   const lines=[hdr.join(';'),...rows.map(r=>[
     r.fecha,r.interno,r.legajo,r.ramal,r.turno,r.servicio,r.sentido,
-    r.kms,r.cambios,r.cat,r.r,r.alertas,r.archivo
+    r.kms,r.trx,r.cambios,r.cat,r.r,r.alertas,r.archivo
   ].join(';'))];
   const blob=new Blob([lines.join('\n')],{type:'text/csv;charset=utf-8;'});
   const a=document.createElement('a');
