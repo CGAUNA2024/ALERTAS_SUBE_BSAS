@@ -6,30 +6,31 @@
 <title>Frecuencias BSAS — IDE 743</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',sans-serif;background:#f0f4f8;color:#1e293b;font-size:14px}
-header{background:#1e3a5f;color:#fff;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-header h1{font-size:1.1rem;font-weight:700}
+body{font-family:'Roboto','Segoe UI',sans-serif;background:#f0f0f0;color:#1D1D1B;font-size:14px}
+header{background:#1D1D1B;color:#fff;padding:0;display:flex;justify-content:space-between;align-items:stretch;flex-wrap:wrap;gap:0;border-bottom:4px solid #E30613}
+header .header-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:14px 20px;width:100%}
+header h1{font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
 header small{opacity:.7;font-size:.8rem}
 .nav-btns{display:flex;gap:8px;flex-wrap:wrap}
 .nav-btns a{
-  background:rgba(255,255,255,.15);color:#fff;text-decoration:none;
-  padding:5px 12px;border-radius:5px;font-size:.8rem;font-weight:600;
-  border:1px solid rgba(255,255,255,.25);transition:background .2s
+  background:rgba(255,255,255,.1);color:#fff;text-decoration:none;
+  padding:5px 12px;border-radius:3px;font-size:.8rem;font-weight:600;
+  border:1px solid rgba(255,255,255,.2);transition:background .2s
 }
-.nav-btns a:hover{background:rgba(255,255,255,.3)}
-.nav-btns a.active{background:#2563eb;border-color:#2563eb}
+.nav-btns a:hover{background:rgba(227,6,19,.7)}
+.nav-btns a.active{background:#E30613;border-color:#E30613}
 .container{max-width:1400px;margin:0 auto;padding:16px}
 .section-title{font-size:.85rem;font-weight:700;color:#475569;text-transform:uppercase;
                 letter-spacing:.05em;margin:16px 0 8px}
 /* Tarjeta total */
 .kpi-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
-.kpi{background:#fff;border-radius:8px;padding:12px 18px;border:1px solid #e2e8f0;min-width:140px}
-.kpi .label{font-size:.72rem;color:#64748b;text-transform:uppercase;letter-spacing:.04em}
-.kpi .value{font-size:1.6rem;font-weight:700;color:#1e3a5f}
+.kpi{background:#fff;border-radius:3px;padding:12px 18px;border:1px solid #ddd;border-top:3px solid #E30613;min-width:140px}
+.kpi .label{font-size:.72rem;color:#868686;text-transform:uppercase;letter-spacing:.04em}
+.kpi .value{font-size:1.6rem;font-weight:700;color:#1D1D1B}
 /* Tabla pivot */
 .pivot-wrap{overflow-x:auto;margin-bottom:20px}
 .pivot-wrap table{border-collapse:collapse;font-size:.8rem;min-width:400px}
-.pivot-wrap th{background:#1e3a5f;color:#fff;padding:5px 10px;text-align:center;white-space:nowrap}
+.pivot-wrap th{background:#1D1D1B;color:#fff;padding:5px 10px;text-align:center;white-space:nowrap}
 .pivot-wrap th.left{text-align:left}
 .pivot-wrap td{padding:4px 10px;border-bottom:1px solid #e2e8f0;text-align:center}
 .pivot-wrap td.label-col{text-align:left;font-weight:600;color:#334155}
@@ -45,18 +46,18 @@ header small{opacity:.7;font-size:.8rem}
   font-size:.8rem;background:#f8fafc;color:#1e293b
 }
 .filters button{
-  background:#1e3a5f;color:#fff;border:none;border-radius:5px;
+  background:#E30613;color:#fff;border:none;border-radius:3px;
   padding:6px 14px;font-size:.8rem;font-weight:600;cursor:pointer
 }
-.filters button:hover{background:#2563eb}
+.filters button:hover{background:#b30010}
 /* Tabla detalle */
 .table-wrap{overflow-x:auto}
 table.det{border-collapse:collapse;width:100%;font-size:.8rem}
 table.det th{
-  background:#1e3a5f;color:#fff;padding:7px 10px;
+  background:#1D1D1B;color:#fff;padding:7px 10px;
   text-align:left;white-space:nowrap;cursor:pointer;user-select:none
 }
-table.det th:hover{background:#2563eb}
+table.det th:hover{background:#E30613}
 table.det td{padding:5px 10px;border-bottom:1px solid #e2e8f0;white-space:nowrap}
 table.det tr:hover td{background:#f1f5f9}
 .pagination{display:flex;gap:6px;align-items:center;margin-top:10px;flex-wrap:wrap}
@@ -65,21 +66,23 @@ table.det tr:hover td{background:#f1f5f9}
   padding:4px 10px;font-size:.78rem;cursor:pointer
 }
 .pagination button:hover{background:#e2e8f0}
-.pagination button.active{background:#1e3a5f;color:#fff;border-color:#1e3a5f}
+.pagination button.active{background:#E30613;color:#fff;border-color:#E30613}
 .pagination .info{font-size:.75rem;color:#64748b}
 </style>
 </head>
 <body>
 <header>
-  <div>
-    <h1>📊 Frecuencias — IDE 743 · Buenos Aires</h1>
-    <small>2026-10-01 → 2026-11-18 · Generado: 18/11/2026 10:54</small>
-  </div>
-  <div class="nav-btns">
-    <a href="index.html">🚌 Alertas</a>
-    <a href="detalle_bsas.html">📋 Detalle</a>
-    <a href="seccionamiento_bsas.html">📐 Seccionamiento</a>
-    <a href="frecuencias_bsas.html" class="active">📊 Frecuencias</a>
+  <div class="header-inner">
+    <div>
+      <h1>📊 Frecuencias — IDE 743 · Buenos Aires</h1>
+      <small>2026-10-01 → 2026-11-18 · Generado: 18/11/2026 11:26</small>
+    </div>
+    <div class="nav-btns">
+      <a href="index.html">🚌 Alertas</a>
+      <a href="detalle_bsas.html">📋 Detalle</a>
+      <a href="seccionamiento_bsas.html">📐 Seccionamiento</a>
+      <a href="frecuencias_bsas.html" class="active">📊 Frecuencias</a>
+    </div>
   </div>
 </header>
 
@@ -96,11 +99,11 @@ table.det tr:hover td{background:#f1f5f9}
     </div>
   </div>
 
-  <div class="section-title">Frecuencias por día y línea</div>
-  <div class="pivot-wrap" id="pivot-dia-wrap"></div>
-
   <div class="section-title">Frecuencias por mes y línea</div>
   <div class="pivot-wrap" id="pivot-mes-wrap"></div>
+
+  <div class="section-title">Frecuencias por día y línea</div>
+  <div class="pivot-wrap" id="pivot-dia-wrap"></div>
 
   <div class="section-title">Detalle de frecuencias</div>
   <div class="filters">
